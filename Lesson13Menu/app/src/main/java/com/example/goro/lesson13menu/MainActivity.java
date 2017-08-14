@@ -8,9 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private CheckBox c1;
+    private CheckBox c2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        c1 = (CheckBox) findViewById(R.id.add_item);
+        c2 = (CheckBox) findViewById(R.id.hide_group);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -30,9 +36,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.setGroupVisible(R.id.group1, c1.isChecked());
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        menu.add(1,2,4,"newItem").setCheckable(true);
         return true;
     }
 
@@ -70,9 +84,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_item3:
                 Toast.makeText(this, getString(R.string.action_item3), Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.action_item4:
-                Toast.makeText(this, getString(R.string.action_item4), Toast.LENGTH_SHORT).show();
+            case 4:
+                item.setChecked(!item.isChecked());
                 break;
+
         }
         return super.onOptionsItemSelected(item);
     }

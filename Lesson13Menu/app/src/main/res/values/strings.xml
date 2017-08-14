@@ -5,4 +5,5 @@
     <string name="action_item2">Item 2</string>
     <string name="action_item3">Item 3</string>
     <string name="action_item4">Item 4</string>
+    <string name="action_email">E-Mail</string>
 </resources>
