@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public final int MENU_RESET_ID = 1;
@@ -77,7 +78,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnDiv:
                 oper = "/";
-                result = String.valueOf(num1 / num2);
+                if (num2 != 0) {
+                    result = String.valueOf(num1 / num2);
+                } else Toast.makeText(this, "Can't divide to 0", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
