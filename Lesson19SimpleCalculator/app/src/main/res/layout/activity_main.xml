@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.goro.lesson19simplecalculator.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/liner_layout_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10pt"
+        android:layout_marginRight="10pt"
+        android:layout_marginTop="3pt">
+
+        <EditText
+            android:id="@+id/etNum1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5pt"
+            android:layout_weight="1"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/etNum2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5pt"
+            android:layout_weight="1"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/liner_Layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3pt"
+        android:layout_marginRight="5pt"
+        android:layout_marginTop="5pt">
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="+"
+            android:textSize="8pt" />
+
+        <Button
+            android:id="@+id/btnSub"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="-"
+            android:textSize="8pt" />
+
+        <Button
+            android:id="@+id/btnMult"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="*"
+            android:textSize="8pt" />
+
+        <Button
+            android:id="@+id/btnDiv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="/"
+            android:textSize="8pt" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_Result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5pt"
+        android:layout_marginRight="5pt"
+        android:layout_marginTop="3pt"
+        android:gravity="center_horizontal"
+        android:textSize="12pt" />
+
+</LinearLayout>
