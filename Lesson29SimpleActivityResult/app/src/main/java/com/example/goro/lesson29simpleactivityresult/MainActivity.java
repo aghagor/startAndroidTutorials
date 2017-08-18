@@ -1,0 +1,40 @@
+package com.example.goro.lesson29simpleactivityresult;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private Button btnName;
+    private TextView tvName;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnName = (Button) findViewById(R.id.btn_name);
+        tvName = (TextView) findViewById(R.id.tv_name);
+
+        btnName.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(this, NameActivity.class);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) {
+            return;
+        }
+        String name = data.getStringExtra("name");
+        tvName.setText("Your name is " + name);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+}
